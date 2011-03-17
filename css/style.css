@@ -243,13 +243,12 @@ a:active {color: #fff; text-decoration: none;}
 
 
 .container{
-/*	background: url(../images/bgGlow.png) no-repeat top center;*/
-	height: 900px;
+
 }
 
 .header{
-	border-bottom: 2px solid #fff;
-	background: #000;
+	border-bottom: 30px solid #fff;
+	background: #222;
 	display: block;
 	height: 100px;
 	width: 100%;
@@ -261,9 +260,9 @@ a:active {color: #fff; text-decoration: none;}
 	
 }
 .header h1{
-	background: url(../images/logo_medium_LG.png) no-repeat;
-	width: 111px;
-	height: 89px;
+	background: url(../images/logo.png) no-repeat;
+	width: 162px;
+	height: 91px;
 	position:absolute;
 	top: 5px;
 }
@@ -274,7 +273,7 @@ a:active {color: #fff; text-decoration: none;}
 	color: #fff;
 	position:absolute;
 	right:0;
-	top:36px;
+	top: 100px;
 }
 .nav ul{
 
@@ -283,6 +282,29 @@ a:active {color: #fff; text-decoration: none;}
 	list-style: none;
 	float:right;
 	margin:0 10px;
+	height:30px;
+	background: #222;
+     -moz-transition: all 0.2s ease-out;  
+       -o-transition: all 0.2s ease-out;  
+  -webkit-transition: all 0.2s ease-out;  
+          transition: all 0.2s ease-out;  
+}
+.nav li a{
+	display: block;
+	padding:0 10px;
+	color: #fff;
+     -moz-transition: all 0.2s ease-out;  
+       -o-transition: all 0.2s ease-out;  
+  -webkit-transition: all 0.2s ease-out;  
+          transition: all 0.2s ease-out;	
+}
+
+
+.nav li:hover{
+	background: #222;
+}
+.nav li:hover a{
+	padding:0 40px;
 }
 
 
