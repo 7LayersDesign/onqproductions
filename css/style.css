@@ -253,7 +253,7 @@ a:active {color: #fff; text-decoration: none;}
 	height: 100px;
 	width: 100%;
 }
-.innerHeader{
+.inner{
 	position: relative;
 	margin:0 auto;
 	width: 960px;
@@ -271,8 +271,7 @@ a:active {color: #fff; text-decoration: none;}
 	padding-top:58px;
 }
 .header h1 span{
-	background: #fff;
-	color:#000;
+
 }
 /* =========================== Navigation Rules =========================*/
 .nav{
@@ -281,15 +280,15 @@ a:active {color: #fff; text-decoration: none;}
 	color: #fff;
 	position:absolute;
 	right:0;
-	top: 100px;
+	top: 40px;
 }
 .nav ul{
 
 }
 .nav li{
 	list-style: none;
-	float:right;
-	margin:0 10px;
+	float:left;
+	margin:0 0;
 	height:30px;
 	background: #222;
      -moz-transition: all 0.2s ease-out;  
@@ -299,20 +298,28 @@ a:active {color: #fff; text-decoration: none;}
 }
 .nav li a{
 	display: block;
-	padding:0 10px;
-	color: #fff;
+	padding:0 1px;
      -moz-transition: all 0.2s ease-out;  
        -o-transition: all 0.2s ease-out;  
   -webkit-transition: all 0.2s ease-out;  
           transition: all 0.2s ease-out;	
 }
+/*1D4459,144863,0A2B3D,133547,498AAD*/
+
+.nav li a.about{color: #1D4459;} 
+.nav li a.photo {color: #1D4459}
+.nav li a.video{color: #1D4459} 
+.nav li a.service{color: #1D4459}
+.nav li a.contact{color: #1D4459}
 
 
 .nav li:hover{
 	background: #222;
 }
 .nav li:hover a{
-	padding:0 40px;
+	color: #fff;	
+	padding:0 20px;
+	font-size: 28px;
 }
 
 
@@ -324,7 +331,13 @@ a:active {color: #fff; text-decoration: none;}
 
 
 
-
+.main img{
+	background: #444;
+	padding: 10px;
+	border: 2px solid #999;
+	margin: 20px auto;
+	display: block;
+}
 
 
 
