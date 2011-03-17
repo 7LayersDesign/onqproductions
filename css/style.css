@@ -261,10 +261,18 @@ a:active {color: #fff; text-decoration: none;}
 }
 .header h1{
 	background: url(../images/logo.png) no-repeat;
-	width: 162px;
 	height: 91px;
+	font-family:BebasNeue;
+	font-size: 36px;
+	color: #fff;	
+	text-indent: 120px;
 	position:absolute;
 	top: 5px;
+	padding-top:58px;
+}
+.header h1 span{
+	background: #fff;
+	color:#000;
 }
 /* =========================== Navigation Rules =========================*/
 .nav{
