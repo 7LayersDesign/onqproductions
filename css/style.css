@@ -247,10 +247,10 @@ a:active {color: #fff; text-decoration: none;}
 }
 
 .header{
-	border-bottom: 30px solid #fff;
+	border-bottom: 3px solid #fff;
 	background: #222;
 	display: block;
-	height: 100px;
+	height: 200px;
 	width: 100%;
 }
 .inner{
@@ -260,14 +260,14 @@ a:active {color: #fff; text-decoration: none;}
 	
 }
 .header h1{
-	background: url(../images/logo.png) no-repeat;
-	height: 91px;
+	background: url(../images/logo2.png) no-repeat;
+	height: 186px;
+	width: 278px;
 	font-family:BebasNeue;
 	font-size: 36px;
 	color: #fff;	
-	text-indent: 120px;
 	position:absolute;
-	top: 5px;
+	top: 8px;
 	padding-top:58px;
 }
 .header h1 span{
@@ -276,11 +276,11 @@ a:active {color: #fff; text-decoration: none;}
 /* =========================== Navigation Rules =========================*/
 .nav{
 	font-family:BebasNeue;
-	font-size: 24px;
+	font-size: 34px;
 	color: #fff;
 	position:absolute;
 	right:0;
-	top: 40px;
+	top: 160px;
 }
 .nav ul{
 
@@ -298,6 +298,7 @@ a:active {color: #fff; text-decoration: none;}
 }
 .nav li a{
 	display: block;
+	color:#666;
 	padding:0 1px;
      -moz-transition: all 0.2s ease-out;  
        -o-transition: all 0.2s ease-out;  
@@ -306,11 +307,11 @@ a:active {color: #fff; text-decoration: none;}
 }
 /*1D4459,144863,0A2B3D,133547,498AAD*/
 
-.nav li a.about{color: #1D4459;} 
+/*.nav li a.about{color: #1D4459;} 
 .nav li a.photo {color: #1D4459}
 .nav li a.video{color: #1D4459} 
 .nav li a.service{color: #1D4459}
-.nav li a.contact{color: #1D4459}
+.nav li a.contact{color: #1D4459}*/
 
 
 .nav li:hover{
@@ -319,7 +320,7 @@ a:active {color: #fff; text-decoration: none;}
 .nav li:hover a{
 	color: #fff;	
 	padding:0 20px;
-	font-size: 28px;
+	font-size: 38px;
 }
 
 
