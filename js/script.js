@@ -7,12 +7,6 @@ $(document).ready(function() {
 	// $.localScroll();
 	
 
-
-
-
-
-
-
 	//hide the displayimage innitially
 	$('.displayImage').hide();
 	
@@ -24,9 +18,9 @@ $(document).ready(function() {
 			method: 'flickr.photosets.getPhotos',
 			format: 'json',
 			api_key: '99fa1a4466f8f97f78b545eaa0a22f28',
-			photoset_id: '72157626085959775',
-			extras: 'url_sq, url_m',	//We need the square thumb, medium source	
-			per_page: '18',
+			photoset_id: '72157626084706053',
+			extras: 'url_m, url_t, url_z',	//We need the thumb, medium source	
+			per_page: '7',
 			jsoncallback: '?'
 			}			
 		};
@@ -48,13 +42,13 @@ $(document).ready(function() {
 		//JSON Object retrieved. Let the fun begin!
 		$.each(data.photoset.photo, function(i, item){
 			//do something with each photo
-			$('.photoList').append('<li class="wedding thumb"><a href="' + item.url_m + 
-			'"><img src="' + item.url_sq + '" width="75" height="75"></a></li>');		
+			$('.photoList').append('<li class="wedding thumb"><a href="' + item.url_z + 
+			'"><img src="' + item.url_t + '" width="' + item.width_t + '" height="' + item.height_t + '"></a></li>');		
 		});
 		
 		//set display to first image
 		//get and store the img src url 
-		var imgSrc = data.photoset.photo[0].url_m;
+		var imgSrc = data.photoset.photo[0].url_z;
 		//set the display image src
 		$('.displayImage').attr('src', imgSrc).fadeIn(1000);
 				

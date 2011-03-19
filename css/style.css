@@ -240,7 +240,7 @@ button {  width: auto; overflow: visible; }
 
 body{
 	background: url(../images/bgTexture.png) repeat;
-	color: #fff;
+	color: #d9d9d9;
 	font-family: 'Helvetica Neue', helvetica, arial, sans-serif;
 	font-size: 16px;
 }
@@ -251,10 +251,14 @@ a:hover {color: #fff; text-decoration: none;}
 a:active {color: #fff; text-decoration: none;}
 
 /* Typography Styles Global */
-h1,h2,h3{font-family:BebasNeueRegular,Helvetica,"Helvetica-Neue",Arial,sans-serif;font-weight:600;margin:0 0;}
+h1,h2,h3{font-family: 'Yanone Kaffeesatz',Helvetica,"Helvetica-Neue",Arial,sans-serif;font-weight:600;margin:0 0;}
 h1{font-size:36px;}
-h2{font-size:48px;}
-h3{font-size:18px;margin-bottom:5px;}
+h2{font-size:68px; margin-top: 5px;}
+h3{font-size:22px;margin-bottom:5px;}
+p{
+	font-size: 16px; /* Traditional Garamond-based serif stack */
+	font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+}
 
 /* =========================== Layout Rules =========================*/
 .container{
@@ -265,7 +269,7 @@ h3{font-size:18px;margin-bottom:5px;}
 	border-bottom: 3px solid #fff;
 	background: #222;
 	display: block;
-	height: 200px;
+	height: 50px;
 	width: 100%;
 }
 .inner{
@@ -273,28 +277,29 @@ h3{font-size:18px;margin-bottom:5px;}
 	margin:0 auto;
 	width: 960px;
 }
-.header h1{
-	background: url(../images/logo2.png) no-repeat;
-	height: 186px;
-	width: 278px;
-	font-family:BebasNeue;
-	font-size: 36px;
-	color: #fff;	
+.header h1.logo{
+	background: url(../images/logoSmall.png) no-repeat;
+	height: 35px;
+	width: 250px;
+	font-size: 22px;
+	letter-spacing: 1px;
+	color: #ddd;	
 	position:absolute;
 	top: 8px;
-	padding-top:58px;
+	text-indent: 75px;
+	padding-top: 5px;
 }
 .header h1 span{
-
+	color:#fff;
 }
 /* =========================== Navigation Rules =========================*/
 .nav{
-	font-family:BebasNeue;
-	font-size: 34px;
+	font-size: 24px;
+	font-weight: 200;
 	color: #fff;
 	position:absolute;
 	right:0;
-	top: 160px;
+	top: 10px;
 }
 .nav ul{
 
@@ -305,41 +310,22 @@ h3{font-size:18px;margin-bottom:5px;}
 	margin:0 0;
 	height:30px;
 	background: #222;
-     -moz-transition: all 0.2s ease-out;  
-       -o-transition: all 0.2s ease-out;  
-  -webkit-transition: all 0.2s ease-out;  
-          transition: all 0.2s ease-out;  
 }
 .nav li a{
 	display: block;
 	color:#666;
 	padding:0 1px;
-     -moz-transition: all 0.2s ease-out;  
-       -o-transition: all 0.2s ease-out;  
-  -webkit-transition: all 0.2s ease-out;  
-          transition: all 0.2s ease-out;	
-}
-/*1D4459,144863,0A2B3D,133547,498AAD*/
-
-
-/*
-	TODO Fix anchor styles
-*/
-/*.nav li a.about{color: #1D4459;} 
-.nav li a.photo {color: #1D4459}
-.nav li a.video{color: #1D4459} 
-.nav li a.service{color: #1D4459}
-.nav li a.contact{color: #1D4459}*/
-
-
-.nav li:hover{
-	background: #222;
+     -moz-transition: all 0.1s ease-out;  
+       -o-transition: all 0.1s ease-out;  
+  -webkit-transition: all 0.1s ease-out;  
+          transition: all 0.1s ease-out;	
 }
 .nav li:hover a{
 	color: #fff;	
 	padding:0 20px;
-	font-size: 38px;
+	font-size: 26px;
 }
+
 
 /* =========================== Major Section Rules =========================*/
 div.section{
@@ -347,19 +333,19 @@ div.section{
 	height: 800px;
 }
 #welcome{
-	background: #96867e;
+/*	background: #fff;*/
 }
 #photoSection{
-	background: #3b3b3b;	
+/*	background: #3b3b3b;	*/
 }
 #videoSection{
-	background: #b8a290;
+/*	background: #2a2a2a;*/
 }
 #servicesSection{
-	background: #96867e;	
+/*	background: #96867e;	*/
 }
 #contactSection{
-	background: #809a84;	
+/*	background: #809a84;	*/
 }
 
 /* =========================== Welcome Section Rules =========================*/
@@ -369,29 +355,27 @@ div.section{
 
 
 
-
-
-
-
-
 /* =========================== Photo Section Rules =========================*/
 .photoStage {
-	width: 700px;
-	min-height: 417px;
-	background: #11333e;
-	margin:20px auto;
+/*	width: 80%;*/
+	min-height: 451px;
+	background: #222;
+	margin:10px auto;
 	overflow: auto;
-	border: 3px solid #fff;
+	border: 1px solid #fff;
 	text-align: center;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 }
 img.displayImage{
-	margin:40px 0;
+	margin:10px 0;
 }
 
 /* Sort Options */
+div.sortOptions{
+	display:none;
+}
 .sortOptions a{
 	color:#fff;
 	font-size: 1em;
@@ -411,20 +395,26 @@ img.displayImage{
 
 
 ul.photoList{
+	border: 1px solid #fff;
+	background-color: #222;
+	overflow: auto;
 	width:954px;
 	margin:0 auto;
 	padding:0;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;	
 }
 .photoList img{
-	margin: 5px;
+	margin: 3px;
 }
 
 .photoList li {
-	border: 0;
+	border: 2px solid #fff;
 	float: left;
 	list-style: none;
-	margin: 10px;
-	height: 85px;
+	margin: 13px;
+	height: 73px;
 }
 .photoList li.thumb:hover{
 	background: #fff;
