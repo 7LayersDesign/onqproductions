@@ -12,6 +12,7 @@ $(document).ready(function() {
 			api_key: '99fa1a4466f8f97f78b545eaa0a22f28',
 			photoset_id: '72157626085959775',
 			extras: 'url_sq, url_m',	//We need the square thumb, medium source	
+			per_page: '9',
 			jsoncallback: '?'
 			}			
 		};
@@ -34,6 +35,8 @@ $(document).ready(function() {
 		//JSON Object retrieved. Let the fun begin!
 		$.each(data.photoset.photo, function(i, item){
 			//do something with each photo
+			$('.photoList').append('<li class="wedding"><a href="' + item.url_m + 
+			'"><img src="' + item.url_sq + '" width="75" height="75"></a></li>');
 			
 						
 		})
