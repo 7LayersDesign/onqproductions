@@ -240,7 +240,7 @@ button {  width: auto; overflow: visible; }
 
 body{
 	background: url(../images/bgTexture.png) repeat;
-	color: #d9d9d9;
+	color: #ededed;
 	font-family: 'Helvetica Neue', helvetica, arial, sans-serif;
 	font-size: 16px;
 }
@@ -251,9 +251,22 @@ a:hover {color: #fff; text-decoration: none;}
 a:active {color: #fff; text-decoration: none;}
 
 /* Typography Styles Global */
-h1,h2,h3{font-family: 'Yanone Kaffeesatz',Helvetica,"Helvetica-Neue",Arial,sans-serif;font-weight:600;margin:0 0;}
-h1{font-size:36px;}
-h2{font-size:68px; margin-top: 5px;}
+h1,h2,h3 {
+	font-family: 'Yanone Kaffeesatz',Helvetica,"Helvetica-Neue",Arial,sans-serif;
+	font-weight: 300;
+	margin: 0 0;	
+}
+
+h1{font-size:38px;}
+h2 {
+	font-size: 68px;
+	margin-top: 5px;
+	font-weight: 600;
+	-moz-text-shadow: 1px 1px 1px #666;	
+	-webkit-text-shadow: 1px 1px 1px #666;	
+	text-shadow: 2px 2px 1px #666;	
+}
+
 h3{font-size:22px;margin-bottom:5px;}
 p{
 	font-size: 16px; /* Traditional Garamond-based serif stack */
@@ -281,16 +294,16 @@ p{
 	background: url(../images/logoSmall.png) no-repeat;
 	height: 35px;
 	width: 250px;
-	font-size: 22px;
+	font-size: 26px;
 	letter-spacing: 1px;
-	color: #ddd;	
+	color: #fff;	
 	position:absolute;
 	top: 8px;
-	text-indent: 75px;
-	padding-top: 5px;
+	text-indent: 70px;
+	padding-top: 0;
 }
 .header h1 span{
-	color:#fff;
+	color:#246980;
 }
 /* =========================== Navigation Rules =========================*/
 .nav{
@@ -357,7 +370,7 @@ div.section{
 
 /* =========================== Photo Section Rules =========================*/
 .photoStage {
-/*	width: 80%;*/
+	width: 680px;
 	min-height: 451px;
 	background: #222;
 	margin:10px auto;
@@ -373,8 +386,9 @@ img.displayImage{
 }
 
 /* Sort Options */
-div.sortOptions{
-	display:none;
+.sortOptions{margin-bottom: 5px;}
+.sortOptions span{
+	font-size:16px;margin-bottom:5px;
 }
 .sortOptions a{
 	color:#fff;

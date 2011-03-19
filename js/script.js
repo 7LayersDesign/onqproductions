@@ -6,6 +6,12 @@ $(document).ready(function() {
 	//scroll to functionality for nav
 	// $.localScroll();
 	
+	
+	function preload(arrayOfImages) {
+	    $(arrayOfImages).each(function(){
+	        $('<img/>')[0].src = this;
+	    });
+	}	
 
 	//hide the displayimage innitially
 	$('.displayImage').hide();
@@ -51,6 +57,15 @@ $(document).ready(function() {
 		var imgSrc = data.photoset.photo[0].url_z;
 		//set the display image src
 		$('.displayImage').attr('src', imgSrc).fadeIn(1000);
+		
+		
+
+		// Preload images
+		/*
+			TODO Implement Image Preloading to fix flickr loading
+		*/
+		
+		
 				
 	});//end JSON action
 
@@ -63,7 +78,7 @@ $(document).ready(function() {
 		$('.displayImage').fadeOut(500, function() {
 			//change img src
 			$(this).attr('src', imgSrc);
-		}).delay(500).fadeIn(500);//.delay to allow for any loading
+		}).delay(1000).fadeIn(500);//.delay to allow for any loading
 				
 		//prevent link action
 		return false;		
