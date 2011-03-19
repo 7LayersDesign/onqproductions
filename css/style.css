@@ -344,7 +344,8 @@ p{letter-spacing:1.2px;text-indent:25px;font-family:"Palatino Linotype",Palatino
 
 /* =========================== Major Section Rules =========================*/
 div.section{
-	height: 900px;
+	border-bottom: 3px solid #fff;
+	height: 800px;
 }
 #welcome{
 	background: #96867e;
@@ -355,9 +356,12 @@ div.section{
 #videoSection{
 	background: #b8a290;
 }
-
-
-
+#servicesSection{
+	background: #96867e;	
+}
+#contactSection{
+	background: #809a84;	
+}
 
 /* =========================== Photo Section Rules =========================*/
 .photoStage {
