@@ -351,7 +351,7 @@ div.section{
 	background: #96867e;
 }
 #photoSection{
-	background: #809a84;	
+	background: #3b3b3b;	
 }
 #videoSection{
 	background: #b8a290;
@@ -365,17 +365,22 @@ div.section{
 
 /* =========================== Photo Section Rules =========================*/
 .photoStage {
-	width: 945px;
-	height: 300px;
-	background: #1D4459;
-	background: rgba(30 30 30 0.4);
+	width: 700px;
+	min-height: 417px;
+	background: #11333e;
 	margin:20px auto;
 	overflow: auto;
 	border: 3px solid #fff;
+	text-align: center;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 }
+img.displayImage{
+	margin:40px 0;
+}
+
+
 ul.photoList{
 	width:954px;
 	margin:0 auto;
@@ -393,7 +398,7 @@ ul.photoList{
 	height: 85px;
 }
 
-.photoList li.wedding{background: #49be69;}
+.photoList li.wedding{background: #246980;}
 .photoList li.sports{background: #94d9a7;}
 .photoList li.commercial{background: #c6ebd0;}
 
