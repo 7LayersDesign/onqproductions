@@ -23,7 +23,7 @@ $(document).ready(function() {
 		qstrings: {
 			method: 'flickr.photosets.getPhotos',
 			format: 'json',
-			api_key: '99fa1a4466f8f97f78b545eaa0a22f28',
+			api_key: '5a79f4d6b80c431cf05fa7a502a67077',
 			photoset_id: '72157626084706053',
 			extras: 'url_m, url_t, url_z',	//We need the thumb, medium source	
 			per_page: '7',
@@ -42,6 +42,9 @@ $(document).ready(function() {
 		first = false;
 	}	
 	
+	console.log(url);
+	
+	
 	//URL complete. getJSON
 	$.getJSON(url, function(data) {
 		console.log(data.photoset);
@@ -51,6 +54,9 @@ $(document).ready(function() {
 			$('.photoList').append('<li class="wedding thumb"><a href="' + item.url_z + 
 			'"><img src="' + item.url_t + '" width="' + item.width_t + '" height="' + item.height_t + '"></a></li>');		
 		});
+		
+		console.log(data);
+		
 		
 		//set display to first image
 		//get and store the img src url 
@@ -68,6 +74,8 @@ $(document).ready(function() {
 		
 				
 	});//end JSON action
+
+
 
 	//attach to click event of thumbnail images.
 	$('ul.photoList a').live("click", function(e) {
