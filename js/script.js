@@ -3,6 +3,16 @@
 
 */
 $(document).ready(function() {
+	//scroll to functionality for nav
+	// $.localScroll();
+	
+
+
+
+
+
+
+
 	//hide the displayimage innitially
 	$('.displayImage').hide();
 	
@@ -38,7 +48,7 @@ $(document).ready(function() {
 		//JSON Object retrieved. Let the fun begin!
 		$.each(data.photoset.photo, function(i, item){
 			//do something with each photo
-			$('.photoList').append('<li class="wedding"><a href="' + item.url_m + 
+			$('.photoList').append('<li class="wedding thumb"><a href="' + item.url_m + 
 			'"><img src="' + item.url_sq + '" width="75" height="75"></a></li>');		
 		});
 		
@@ -49,8 +59,6 @@ $(document).ready(function() {
 		$('.displayImage').attr('src', imgSrc).fadeIn(1000);
 				
 	});//end JSON action
-	
-	
 
 	//attach to click event of thumbnail images.
 	$('ul.photoList a').live("click", function(e) {

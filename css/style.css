@@ -241,7 +241,10 @@ button {  width: auto; overflow: visible; }
 body{
 	background: url(../images/bgTexture.png) repeat;
 	color: #fff;
+	font-family: 'Helvetica Neue', helvetica, arial, sans-serif;
+	font-size: 16px;
 }
+
 a {color: #fff; text-decoration: none; padding:0}
 a:visited {color: #fff; text-decoration: none;}
 a:hover {color: #fff; text-decoration: none;}
@@ -251,10 +254,7 @@ a:active {color: #fff; text-decoration: none;}
 h1,h2,h3{font-family:BebasNeueRegular,Helvetica,"Helvetica-Neue",Arial,sans-serif;font-weight:600;margin:0 0;}
 h1{font-size:36px;}
 h2{font-size:48px;}
-h3{font-size:24px;color:#111;}
-p{letter-spacing:1.2px;text-indent:25px;font-family:"Palatino Linotype",Palatino,Palladio,"URW Palladio L","Book Antiqua",Baskerville,"Bookman Old Style","Bitstream Charter","Nimbus Roman No9 L",Garamond,"Apple Garamond","ITC Garamond Narrow","New Century Schoolbook","Century Schoolbook","Century Schoolbook L",Georgia,serif;}
-
-
+h3{font-size:18px;margin-bottom:5px;}
 
 /* =========================== Layout Rules =========================*/
 .container{
@@ -272,7 +272,6 @@ p{letter-spacing:1.2px;text-indent:25px;font-family:"Palatino Linotype",Palatino
 	position: relative;
 	margin:0 auto;
 	width: 960px;
-	
 }
 .header h1{
 	background: url(../images/logo2.png) no-repeat;
@@ -363,6 +362,18 @@ div.section{
 	background: #809a84;	
 }
 
+/* =========================== Welcome Section Rules =========================*/
+#welcome.section{
+
+}
+
+
+
+
+
+
+
+
 /* =========================== Photo Section Rules =========================*/
 .photoStage {
 	width: 700px;
@@ -379,6 +390,24 @@ div.section{
 img.displayImage{
 	margin:40px 0;
 }
+
+/* Sort Options */
+.sortOptions a{
+	color:#fff;
+	font-size: 1em;
+	padding:2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;	
+}
+.sortOptions a.sort1{background: #246980;}
+.sortOptions a.sort2{background: #94d9a7; color:#333;}
+.sortOptions a.sort3{background: #c6ebd0; color:#333;}
+.sortOptions a:hover{
+	background: #fff;
+	color:#333; 
+}
+
 
 
 ul.photoList{
@@ -397,6 +426,10 @@ ul.photoList{
 	margin: 10px;
 	height: 85px;
 }
+.photoList li.thumb:hover{
+	background: #fff;
+}
+
 
 .photoList li.wedding{background: #246980;}
 .photoList li.sports{background: #94d9a7;}
