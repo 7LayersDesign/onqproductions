@@ -236,9 +236,9 @@ button {  width: auto; overflow: visible; }
 }
 
 body{
-	background: #222;
+	background-color: #ddd;
 	background-attachment: fixed;
-	color: #ededed;
+	color: #222;
 	font-family: 'Helvetica Neue', helvetica, arial, sans-serif;
 	font-size: 16px;
 	padding: 0;
@@ -290,7 +290,7 @@ p{
 
 #headerWrap{
 	border-bottom: 3px solid #fff;
-	background: #222;
+	background: url(../images/stripeBG.png) repeat;
 	height: 50px;
 	width: 100%;
 	position:fixed;
