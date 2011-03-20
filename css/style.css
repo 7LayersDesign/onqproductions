@@ -277,6 +277,7 @@ h2 {
 	-moz-text-shadow: 1px 1px 1px #666;	
 	-webkit-text-shadow: 1px 1px 1px #666;	
 	text-shadow: 2px 2px 1px #666;	
+	float:left;
 }
 
 h3{font-size:22px;margin-bottom:5px;}
@@ -310,7 +311,7 @@ p{
 	padding-top: 0;
 }
 #headerWrap h1 span{
-	color:#246980;
+/*	color:#246980;*/
 }
 
 .container{
@@ -342,6 +343,9 @@ p{
 	height:30px;
 	background: #222;
 }
+.nav li.current a{
+	color:#fff;
+}
 .nav li a{
 	display: block;
 	color:#666;
@@ -358,8 +362,16 @@ div.section{
 	height: 800px;
 	padding-top: 50px;
 }
-#welcome{
-/*	background: #fff;*/
+div.section p{
+	float:right;
+	display:block;
+	border-left: 2px solid #fff;
+	width: 700px;
+	padding-left: 5px;
+	margin: 20px;
+}
+#welcomeSection {
+
 }
 #photoSection{
 /*	background: #3b3b3b;	*/
@@ -399,7 +411,10 @@ img.displayImage{
 }
 
 /* Sort Options */
-.sortOptions{margin-bottom: 5px;}
+.sortOptions{
+	margin-bottom: 5px;
+	display:none;
+	}
 .sortOptions span{
 	font-size:16px;margin-bottom:5px;
 }

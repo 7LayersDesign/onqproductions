@@ -4,7 +4,11 @@
 */
 $(document).ready(function() {
     //scroll to functionality for nav
-	$('.nav').onePageNav();
+	$('.nav').onePageNav({
+	    currentClass: 'current',
+	    changeHash: true,
+	    scrollSpeed: 500
+	  });
 
     //hide the displayimage innitially
     $('.displayImage').hide();
@@ -39,13 +43,12 @@ $(document).ready(function() {
     //URL complete. getJSON
     $.getJSON(url,{},
     function(data) {
-        console.log(data.photoset);
         //JSON Object retrieved. Let the fun begin!
         $.each(data.photoset.photo,
         function(i, item) {
             //do something with each photo
             $('.photoList').append('<li class="wedding thumb"><a href="' + item.url_z +
-            '"><img src="' + item.url_t + '" width="' + item.width_t + '" height="' + item.height_t + '"></a></li>').fadeTo(500, 0.5);
+            '"><img src="' + item.url_t + '" width="' + item.width_t + '" height="' + item.height_t + '"></a></li>');
         });
 
         //set display to first image
@@ -81,16 +84,16 @@ $(document).ready(function() {
     });
     //end of click event
 
+	/*
+		TODO Fix image fade in/out
+	*/
+	$('ul.photoList li a').live("load", function(){
 
-	
+	});
 	//fade back in thumbnail on hover
-	$('ul.photoList ').hover(function(e){
-		// console.log(e.target);
-		
-		if( $(e.target).is('a img') )
-			console.log('In Hover Event');
-				$(this).fadeTo(500, 1);
-	})
+	$('ul.photoList li.thumb a img').live("hover", function(e){
+
+	});
 
 });
 
