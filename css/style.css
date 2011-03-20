@@ -236,7 +236,7 @@ button {  width: auto; overflow: visible; }
 }
 
 body{
-	background-color: #ddd;
+	background: url(../images/stripeBGWhite.png) repeat;
 	background-attachment: fixed;
 	color: #222;
 	font-family: 'Helvetica Neue', helvetica, arial, sans-serif;
@@ -299,7 +299,7 @@ p{
 	z-index:1;
 }
 #headerWrap h1.logo{
-	background: url(../images/logoHorizontal.png) no-repeat;
+	background: url(../images/logoHorizontalLight.png) no-repeat;
 	height: 38px;
 	width: 309px;	
 	position:absolute;
