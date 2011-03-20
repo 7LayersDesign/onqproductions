@@ -5,7 +5,7 @@
 $(document).ready(function() {
     //scroll to functionality for nav
 	$('.nav').onePageNav();
-	$('.logo').onePageNav();
+
     //hide the displayimage innitially
     $('.displayImage').hide();
 
@@ -37,7 +37,7 @@ $(document).ready(function() {
 		TODO Add exception handling to getJSON() call.
 	*/
     //URL complete. getJSON
-    $.getJSON(url,
+    $.getJSON(url,{},
     function(data) {
         console.log(data.photoset);
         //JSON Object retrieved. Let the fun begin!

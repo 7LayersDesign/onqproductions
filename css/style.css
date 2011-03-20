@@ -237,6 +237,7 @@ button {  width: auto; overflow: visible; }
 
 body{
 	background: url(../images/bgTexture.png) repeat;
+	background-attachment: fixed;
 	color: #ededed;
 	font-family: 'Helvetica Neue', helvetica, arial, sans-serif;
 	font-size: 16px;
@@ -271,8 +272,7 @@ h1,h2,h3 {
 
 h1{font-size:38px;}
 h2 {
-	font-size: 68px;
-	margin-top: 5px;
+	font-size: 48px;
 	font-weight: 600;
 	-moz-text-shadow: 1px 1px 1px #666;	
 	-webkit-text-shadow: 1px 1px 1px #666;	
@@ -295,6 +295,7 @@ p{
 	position:fixed;
 	top:0;
 	left:0;
+	z-index:1;
 }
 #headerWrap h1.logo{
 	background: url(../images/logoSmall.png) no-repeat;
@@ -345,21 +346,15 @@ p{
 	display: block;
 	color:#666;
 	padding:0 1px;
-     -moz-transition: all 0.1s ease-out;  
-       -o-transition: all 0.1s ease-out;  
-  -webkit-transition: all 0.1s ease-out;  
-          transition: all 0.1s ease-out;	
 }
 .nav li:hover a{
-	color: #fff;	
-	padding:0 20px;
-	font-size: 26px;
+	color: #fff;
 }
 
 
 /* =========================== Major Section Rules =========================*/
 div.section{
-	border-bottom: 3px solid #fff;
+/*	border-bottom: 3px solid #fff;*/
 	height: 800px;
 	padding-top: 50px;
 }
