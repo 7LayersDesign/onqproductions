@@ -54,24 +54,22 @@ $(document).ready(function() {
         var imgSrc = data.photoset.photo[0].url_z;
         //set the display image src
         $('.displayImage').attr('src', imgSrc).fadeIn(1000);
-
-
-
         // Preload images
         /*
 			TODO Implement Image Preloading to fix flickr loading
 		*/
-
-
-
     });
     //end JSON action
+
+
+
+
     //attach to click event of thumbnail images.
     $('ul.photoList a').live("click",
     function(e) {
         //get and store the img src url
         var imgSrc = $(this).attr('href');
-
+    
         //fadeout image
         $('.displayImage').fadeOut(500,
         function() {

@@ -249,7 +249,7 @@ span.top a{
 	background: url(../images/arrowUp.png) no-repeat;
 	position:absolute;
 	display:block;	
-	padding-left:50px;
+/*	padding-left:50px;*/
 	height: 47px;
 	width:48px;
 	right:30px;
@@ -289,15 +289,20 @@ p{
 
 /* =========================== Layout Rules =========================*/
 .container{
-	
+	position:relative;
 }
-
 .header{
 	border-bottom: 3px solid #fff;
 	background: #222;
+	position:absolute;
+	top:0;
+	left:0;
 	display: block;
 	height: 50px;
 	width: 100%;
+}
+.container div.header{
+	position:fixed;
 }
 .inner{
 	position: relative;
@@ -358,6 +363,7 @@ p{
 div.section{
 	border-bottom: 3px solid #fff;
 	height: 800px;
+/*	margin-top:90px;*/
 }
 #welcome{
 /*	background: #fff;*/
