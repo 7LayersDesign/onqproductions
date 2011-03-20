@@ -1,6 +1,4 @@
 /* Author: Andy Hutchins for Seven Layers Design
-
-
 */
 $(document).ready(function() {
     //scroll to functionality for nav
