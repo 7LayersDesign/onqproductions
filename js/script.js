@@ -5,8 +5,7 @@
 $(document).ready(function() {
     //scroll to functionality for nav
 	$('.nav').onePageNav();
-	$('span.top').onePageNav();
-
+	$('.logo').onePageNav();
     //hide the displayimage innitially
     $('.displayImage').hide();
 
