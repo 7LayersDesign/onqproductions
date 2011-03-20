@@ -245,6 +245,20 @@ body{
 	font-size: 16px;
 }
 
+span.top a{
+	background: url(../images/arrowUp.png) no-repeat;
+	position:absolute;
+	display:block;	
+	padding-left:50px;
+	height: 47px;
+	width:48px;
+	right:30px;
+	top:25px;
+}
+span.top a:hover{
+	background: url(../images/arrowUp_Over.png) no-repeat;	
+}
+
 a {color: #fff; text-decoration: none; padding:0}
 a:visited {color: #fff; text-decoration: none;}
 a:hover {color: #fff; text-decoration: none;}
