@@ -333,7 +333,6 @@ p{
 	float:left;
 	margin:0 0;
 	height:30px;
-	background: #222;
 }
 .nav li.current a{
 	color:#fff;
@@ -377,10 +376,9 @@ div.section p{
 .photoStage {
 	width: 680px;
 	min-height: 451px;
-	background: #222;
 	margin:10px auto;
 	overflow: auto;
-	border: 1px solid #fff;
+	border: 1px solid #333;
 	text-align: center;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -414,11 +412,8 @@ img.displayImage{
 	color:#333; 
 }
 
-
-
 ul.photoList{
-	border: 1px solid #fff;
-	background-color: #222;
+	border: 1px solid #333;
 	overflow: auto;
 	width:954px;
 	margin:0 auto;
