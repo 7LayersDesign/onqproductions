@@ -290,7 +290,7 @@ p{
 
 #headerWrap{
 	border-bottom: 3px solid #fff;
-	background: url(../images/stripeBG.png) repeat;
+	background: url(../images/bgStriped.png) repeat-x;
 	height: 50px;
 	width: 100%;
 	position:fixed;
