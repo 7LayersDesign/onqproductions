@@ -227,37 +227,16 @@ button {  width: auto; overflow: visible; }
 /*1D4459, 144863, 0A2B3D, 133547, 498AAD*/
 
 /* =========================== Global Rules =========================*/
-@font-face {
-	font-family: 'BebasNeue';
-	src: url('../fonts/BebasNeue-webfont.eot');
-	src: local('☺'), url('../fonts/BebasNeue-webfont.woff') format('woff'), url('../fonts/BebasNeue-webfont.ttf') format('truetype'), url('../fonts/BebasNeue-webfont.svg#webfontOTINA1xY') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
 body{
 	background: url(../images/bgTextureLight.png) repeat;
 	background-attachment: fixed;
 	color: #222;
-	font-family: 'Helvetica Neue', helvetica, arial, sans-serif;
-	font-size: 16px;
+	font-family: "adobe-garamond-pro-1","adobe-garamond-pro-2";
+	font-size: 18px;
 	padding: 0;
 	margin: 0;
 }
-
-span.top a{
-	background: url(../images/arrowUp.png) no-repeat;
-	position:absolute;
-	display:block;	
-	height: 47px;
-	width:48px;
-	right:30px;
-	top:25px;
-}
-span.top a:hover{
-	background: url(../images/arrowUp_Over.png) no-repeat;	
-}
-
+/* Basic Hyperlink Styles*/
 a {color: #fff; text-decoration: none; padding:0}
 a:visited {color: #fff; text-decoration: none;}
 a:hover {color: #fff; text-decoration: none;}
@@ -265,26 +244,14 @@ a:active {color: #fff; text-decoration: none;}
 
 /* Typography Styles Global */
 h1,h2,h3 {
-	font-family: 'Yanone Kaffeesatz',Helvetica,"Helvetica-Neue",Arial,sans-serif;
+	font-family: "trajan-pro-1", "trajan-pro-2";
 	font-weight: 300;
-	margin: 0 0;	
 }
 
 h1{font-size:38px;}
-h2 {
-	font-size: 48px;
-	font-weight: 600;
-	-moz-text-shadow: 1px 1px 1px #666;	
-	-webkit-text-shadow: 1px 1px 1px #666;	
-	text-shadow: 2px 2px 1px #666;	
-	float:left;
-}
-
+h2 {font-size: 32px;width:100%;}
 h3{font-size:22px;margin-bottom:5px;}
-p{
-	font-size: 16px; /* Traditional Garamond-based serif stack */
-	font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
-}
+p{margin:0 20px;}
 
 /* =========================== Layout Rules =========================*/
 
@@ -306,9 +273,6 @@ p{
 	top: 8px;
 }
 
-.container{
-/*	padding-top: 50px;*/
-}
 
 .inner{
 	position: relative;
@@ -318,15 +282,12 @@ p{
 
 /* =========================== Navigation Rules =========================*/
 .nav{
-	font-size: 24px;
-	font-weight: 200;
+	font-size: 20px;
+	font-family: "trajan-pro-1","trajan-pro-2";
 	color: #fff;
 	position:absolute;
 	right:0;
-	top: 10px;
-}
-.nav ul{
-
+	top: 12px;
 }
 .nav li{
 	list-style: none;
@@ -349,17 +310,12 @@ p{
 
 /* =========================== Major Section Rules =========================*/
 div.section{
-/*	border-bottom: 3px solid #fff;*/
 	height: 800px;
 	padding-top: 50px;
 }
 div.section p{
-	float:right;
 	display:block;
-	border-left: 2px solid #fff;
-	width: 700px;
 	padding-left: 5px;
-	margin: 20px;
 }
 #welcomeSection{}
 #photoSection{}
@@ -367,60 +323,33 @@ div.section p{
 #servicesSection{}
 #contactSection{}
 
-/* =========================== Welcome Section Rules =========================*/
-#welcome.section{
-
-}
 
 /* =========================== Photo Section Rules =========================*/
 .photoStage {
 	width: 680px;
 	min-height: 451px;
-	margin:10px auto;
+	margin:0 auto;
 	overflow: auto;
-	border: 1px solid #333;
 	text-align: center;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
 }
 img.displayImage{
 	margin:10px 0;
 }
 
 /* Sort Options */
-.sortOptions{
-	margin-bottom: 5px;
-	display:none;
-	}
-.sortOptions span{
-	font-size:16px;margin-bottom:5px;
-}
-.sortOptions a{
-	color:#fff;
-	font-size: 1em;
-	padding:2px;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;	
-}
-.sortOptions a.sort1{background: #246980;}
-.sortOptions a.sort2{background: #94d9a7; color:#333;}
-.sortOptions a.sort3{background: #c6ebd0; color:#333;}
-.sortOptions a:hover{
-	background: #fff;
-	color:#333; 
-}
+.sortOptions{margin-bottom:5px;display:none;}
+.sortOptions span{font-size:16px;margin-bottom:5px;}
+.sortOptions a{color:#fff;font-size:1em;padding:2px;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;}
+.sortOptions a.sort1{background:#246980;}
+.sortOptions a.sort2{background:#94d9a7;color:#333;}
+.sortOptions a.sort3{background:#c6ebd0;color:#333;}
+.sortOptions a:hover{background:#fff;color:#333;}
 
 ul.photoList{
-	border: 1px solid #333;
-	overflow: auto;
-	width:954px;
+	overflow: hidden;
+/*	width:960px;*/
 	margin:0 auto;
 	padding:0;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;	
 }
 .photoList img{
 	margin: 3px;
@@ -430,24 +359,16 @@ ul.photoList{
 	border: 2px solid #fff;
 	float: left;
 	list-style: none;
-	margin: 13px;
+	margin:0 5px;
 	height: 73px;
 }
 .photoList li.thumb:hover{
 	background: #fff;
 }
 
-
 .photoList li.wedding{background: #246980;}
 .photoList li.sports{background: #94d9a7;}
 .photoList li.commercial{background: #c6ebd0;}
-
-
-
-
-
-
-
 
 .main img{
 	background: #444;
@@ -456,8 +377,6 @@ ul.photoList{
 	margin: 20px auto;
 	display: block;
 }
-
-
 
 
 /*
