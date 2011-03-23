@@ -236,7 +236,7 @@ button {  width: auto; overflow: visible; }
 }
 
 body{
-	background: url(../images/stripeBGWhite.png) repeat;
+	background: url(../images/bgTextureLight.png) repeat;
 	background-attachment: fixed;
 	color: #222;
 	font-family: 'Helvetica Neue', helvetica, arial, sans-serif;
