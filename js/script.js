@@ -20,7 +20,7 @@ $(document).ready(function() {
             format: 'json',
             api_key: '5a79f4d6b80c431cf05fa7a502a67077',
             photoset_id: '72157626084706053',
-            extras: 'url_m, url_t, url_z',
+            extras: 'url_m, url_b, url_z, url_t',
             //We need the thumb, medium source	
             per_page: '7',
             jsoncallback: '?'
@@ -38,16 +38,23 @@ $(document).ready(function() {
     /*
 		TODO Add exception handling to getJSON() call.
 	*/
+	
+	var imgURL;
     //URL complete. getJSON
     $.getJSON(url,{},
     function(data) {
         //JSON Object retrieved. Let the fun begin!
         $.each(data.photoset.photo,
-        function(i, item) {
-            //do something with each photo
-            $('.photoList').append('<li class="wedding thumb"><a href="' + item.url_z +
-            '"><img src="' + item.url_t + '" width="' + item.width_t + '" height="' + item.height_t + '"></a></li>');
-        });
+	        function(i, item) {
+				imgURL = 'http://farm' + item.farm + '.static.flickr.com/' + 
+					item.server + '/' + item.id + '_' + item.secret + '_b.jpg';
+					
+				//console.log(imgURL);
+			
+	            //do something with each photo
+	            $('.photoList').append('<li class="wedding thumb"><a href="' + imgURL +
+	            '"><img src="' + item.url_t + '" width="' + item.width_t + '" height="' + item.height_t + '"></a></li>');
+	        });
 
         //set display to first image
         //get and store the img src url
