@@ -13,6 +13,9 @@
        Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
+	<!--
+		TODO Enter page meta data. Change title based on page scroll posistion?
+	-->
   <title></title>
   <meta name="description" content="">
   <meta name="author" content="">
@@ -21,9 +24,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
+	<!--
+		TODO Create favicon and appletouchicon
+	-->
+  <!-- <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
 
   <!-- CSS : implied media="all" -->
   <link rel="stylesheet" href="css/style.css?v=2">
@@ -53,15 +58,18 @@
 	</div>
 </div><!-- End of .header -->   
 
-  
+<!-- Page Wrap Container Start -->
 <div class="container">
-	
+	<!--
+		TODO Tweak the dimensions of the sections. Respond to diff sreen sizes?
+	-->
+	<!-- Welcome Section -->
 	<div id="welcomeSection" class="section">
 		<div class="inner">
 			<!-- <h2>Welcome</h2> -->
-
-			
-			
+			<!--
+				TODO Design and develop the landing page!!!
+			-->
 		</div>
     </div>
 
@@ -71,9 +79,6 @@
 		<p>We can provide a wide range of photographic services ranging from commercial 
 			shoots to wedding. Contact us for more info. We can provide a wide range of photographic services ranging from commercial 
 				shoots to wedding. Contact us for more info. Take some time  to checkout our photo samples below!</p>
-			<div class="photoStage">
-				<img class="displayImage" src="" width="800" height="534">
-			</div>
 			<div class="sortOptions">
 				<span>Sort Options:</span>
 				<a class="sort1" href="#sortWed">Wedding</a>
@@ -83,17 +88,18 @@
 
 			<ul class="photoList">				
 				<!-- List of image thumbs will go here -->
-			</ul>		
-			
+			</ul>					
 		</div>
     </div>
 
+	<!-- Video Section -->
     <div id="videoSection" class="section">
 		<div class="inner">
 			<h2>Videography</h2>
 			
 		</div>
-    </div>
+	</div>
+	<!-- Service Section -->
     <div id="servicesSection" class="section">
 		<div class="inner">
 			<h2>Service</h2>
@@ -101,18 +107,19 @@
 			
 		</div>
     </div>
+	<!-- Contact Section -->
     <div id="contactSection" class="section">
 		<div class="inner">
 			<h2>Contact</h2>
-
-			
+			<!--
+				TODO Develop contact page. Contact form and info. Wufoo??
+			-->			
 		</div>
     </div>	
 </div> <!--! end of .container -->
 
 
-  <!-- Javascript at the bottom for fast page loading -->
-
+  <!-- All Javascript at the bottom for fast page loading -->
   <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.5.1.js"%3E%3C/script%3E'))</script>
@@ -121,11 +128,9 @@
   <script src="js/script.js"></script>
   <script src="js/plugins/jquery.nav.min.js"></script>
   <script src="js/plugins/jquery.scrollTo.js"></script>
-
-  <!-- end concatenated and minified scripts-->
-  
-  
-<!-- Use ddbelatedpng to fix png transparency in ie7 and below -->
+  <script src="js/plugins/jquery.isotope.js"></script>
+   
+	<!-- Use ddbelatedpng to fix png transparency in ie7 and below -->
 	<!--
 		TODO Add png fix class to all elements that need it
 	-->
