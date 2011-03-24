@@ -249,7 +249,7 @@ h1,h2,h3 {
 }
 
 h1{font-size:38px;}
-h2 {font-size: 32px;width:100%;letter-spacing: -1px;}
+h2{font-size:32px;width:100%;letter-spacing:-1px;text-shadow:1px 1px 0 #fff;}
 h3{font-size:22px;margin-bottom:5px;}
 p{margin:0 20px;}
 
@@ -302,6 +302,12 @@ p{margin:0 20px;}
 	display: block;
 	color:#666;
 	padding:0 1px;
+
+	-moz-transition: all 0.3s ease-out;  
+	-o-transition: all 0.3s ease-out;  
+	-webkit-transition: all 0.3s ease-out;  
+	transition: all 0.3s ease-out;  
+	
 }
 .nav li:hover a{
 	color: #fff;
@@ -326,13 +332,19 @@ div.section p{
 
 /* =========================== Photo Section Rules =========================*/
 .photoStage {
-	width: 800px;
+	width: 810px;
 	min-height: 534px;
 	overflow: hidden;
 	float:left;
 }
 img.displayImage{
 	margin:10px 0;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;	
+	-webkit-box-shadow: 3px 3px 3px #666;
+	-moz-box-shadow: 3px 3px 3px #666;
+	box-shadow: 3px 3px 3px #666;
 }
 
 /* Sort Options */
@@ -349,7 +361,7 @@ ul.photoList{
 	overflow: hidden;
 	float:right;
 	margin-top: 10px;
-	width:120px;
+	width:114px;
 	height: 534px;
 	padding:0;
 }
@@ -361,7 +373,7 @@ ul.photoList{
 	border: 2px solid #fff;
 	float: left;
 	list-style: none;
-	margin:0 5px;
+	margin:0;
 	height: 73px;
 }
 .photoList li.thumb:hover{
