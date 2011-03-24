@@ -2,16 +2,15 @@
 */
 $(document).ready(function() {
     //scroll to functionality for nav
-	$('.nav').onePageNav({
-	    currentClass: 'current',
-	    changeHash: true,
-	    scrollSpeed: 500
-	  });
+    $('.nav').onePageNav({
+        currentClass: 'current',
+        changeHash: true,
+        scrollSpeed: 500
+    });
+    // End page scroll functionality
 
-    //hide the displayimage innitially
-    $('.displayImage').hide();
 
-	//Much of this code is modified from the jFlickrFeed plugin to pull photosets. Thanks!!
+    //Much of this code is modified from the jFlickrFeed plugin to pull photosets. Thanks!!
     // Build URL to query the Flickr API
     var settings = {
         flickrbase: 'http://api.flickr.com/services/rest/',
@@ -22,11 +21,11 @@ $(document).ready(function() {
             photoset_id: '72157626084706053',
             extras: 'url_m, url_b, url_z, url_t',
             //We need the thumb, medium source	
-            per_page: '7',
+            // per_page: '',
             jsoncallback: '?'
         }
-    };	
-	//build out API request URL
+    };
+    //build out API request URL
     var url = settings.flickrbase + '?';
     var first = true;
     for (var key in settings.qstrings) {
@@ -38,69 +37,67 @@ $(document).ready(function() {
     /*
 		TODO Add exception handling to getJSON() call.
 	*/
-	
-	var imgURL;
-    //URL complete. getJSON
-    $.getJSON(url,{},
-    function(data) {
-        //JSON Object retrieved. Let the fun begin!
-        $.each(data.photoset.photo,
-	        function(i, item) {
-				imgURL = 'http://farm' + item.farm + '.static.flickr.com/' + 
-					item.server + '/' + item.id + '_' + item.secret + '_b.jpg';
-					
-				//console.log(imgURL);
-			
-	            //do something with each photo
-	            $('.photoList').append('<li class="wedding thumb"><a href="' + imgURL +
-	            '"><img src="' + item.url_t + '" width="' + item.width_t + '" height="' + item.height_t + '"></a></li>');
-	        });
 
-        //set display to first image
-        //get and store the img src url
-        var imgSrc = data.photoset.photo[0].url_z;
-        //set the display image src
-        $('.displayImage').attr('src', imgSrc).fadeIn(1000);
-        // Preload images
-        /*
-			TODO Implement Image Preloading to fix flickr loading
-		*/
-    });
-    //end JSON action
-
-
-
-
-    //attach to click event of thumbnail images.
-    $('ul.photoList a').live("click",
-    function(e) {
-        //get and store the img src url
-        var imgSrc = $(this).attr('href');
+    // Initialize vars
+    var imgURL_full;
+    var imgURL_thumb;
+    var photoArr = [];
+    var photoItem = [];
     
-        //fadeout image
-        $('.displayImage').fadeOut(500,
-        function() {
-            //change img src
-            $(this).attr('src', imgSrc);
-        }).delay(1000).fadeIn(500);
-        //.delay to allow for any loading				
-        return false;
-        //prevent link action
+    // Perform JSON request
+    $.getJSON(url, {},
+    function(data) {                
+        // if request succeded do stuff
+        if (data.stat == 'ok'){
+            //JSON Object retrieved. Build URL and push to photoArr on each item
+            $.each(data.photoset.photo,
+            function(i, item) {
+                // clear photoItem
+                photoItem = null;
+
+                //build imgURL for full and thumb
+                imgURL_thumb = 'http://farm' + item.farm + '.static.flickr.com/' +
+                    item.server + '/' + item.id + '_' + item.secret + '_t.jpg';
+                imgURL_full = 'http://farm' + item.farm + '.static.flickr.com/' +
+                    item.server + '/' + item.id + '_' + item.secret + '_b.jpg';
+
+                // Add photo data to item array
+                photoItem = ['wedding', imgURL_thumb, imgURL_full];                
+                //add photoItem to photoArr array
+                photoArr.push(photoItem);                    
+            });
+            
+            //print items to page
+            if (photoArr.length > 0){
+                console.log('Print Time');
+                //append each photo to index as an li element
+                $.each(photoArr, function(i){                    
+                    console.log(photoArr[i][0] + ' :: ' + photoArr[i][1]);
+
+
+                    $('.photoList').append('<li class="' + photoArr[i][0] + '"><img src="' +
+                            photoArr[i][1] + '"></li>');
+                    
+                    
+                    
+                });
+                
+            };
+        } else {
+            console.log('An error has occured. See below for details.\n' +
+                'Error Code: ' + data.code + '\n' +
+                'Status: ' + data.stat + '\n' +
+                'Message: ' + data.message);
+        }
     });
-    //end of click event
+    //end JSON action        
+    
+    
 
-	/*
-		TODO Fix image fade in/out
-	*/
-	$('ul.photoList li a').live("load", function(){
+    
+    
+}); 
 
-	});
-	//fade back in thumbnail on hover
-	$('ul.photoList li.thumb a img').live("hover", function(e){
-
-	});
-
-});
 
 
 
