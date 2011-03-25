@@ -161,7 +161,7 @@ h1,h2,h3 {
 }
 
 h1{font-size:38px;}
-h2{font-size:32px;width:100%;letter-spacing:-1px;text-shadow:1px 1px 0 #fff;}
+h2{font-size:32px;width:100%;letter-spacing:-1px;text-shadow:1px 1px 0 #fff; border-bottom: 1px solid #999;margin-bottom: 5px;}
 h3{font-size:22px;margin-bottom:5px;}
 p{margin:0 20px;}
 
@@ -220,19 +220,21 @@ p{margin:0 20px;}
 .nav li:hover a{color:#fff;}
 
 /* =========================== Major Section Rules =========================*/
-div.section{height:800px;padding-top:50px;}
+div.section{height:800px;padding-top:50px;border-top: 2px solid #fff;}
 div.section p{display:block;padding-left:5px;}
 
-#welcomeSection{background:url(../images/BGphotoSection.png) no-repeat top left;}
+#welcomeSection img{display:block; margin: 0 auto;}
 #photoSection{background:url(../images/BGphotoSection.png) no-repeat top left;}
 #videoSection{background:url(../images/BGvideoSection.png) no-repeat top left;}
-#servicesSection{background:url(../images/BGphotoSection.png) no-repeat top left;}
-#contactSection{background:url(../images/BGphotoSection.png) no-repeat top left;}
+#servicesSection{background:url(../images/BGservicesSection.png) no-repeat top left;}
+#contactSection{background:url(../images/BGcontactSection.png) no-repeat top left;}
 
 /* =========================== Photo Section Rules =========================*/
 
 /* Sort Options */
 .sortOptions {
+	font-family: "trajan-pro-1","trajan-pro-2";
+	font-size: 14px;   
    margin: 5px;
    border: 1px solid #999;
    padding: 5px;
@@ -246,13 +248,10 @@ div.section p{display:block;padding-left:5px;}
 .sortOptions a:hover{background:#fff;color:#333;}
 #photoList li img{border: 5px solid #999;}
 #photoList li.wedding img{border-color:#535353;}
-#photoList li.sports img{border-color:#151515;}
 #photoList li.commercial img{border-color:#151515;}
 #photoList li:hover img{border-color:#fff;}
 
 #photoList{
-   outline: 1px solid #999;
-	overflow: hidden;
 	margin-top: 10px;
 	margin: 10px 0;
 	width:100%;
@@ -263,6 +262,7 @@ div.section p{display:block;padding-left:5px;}
 	float: left;
 	list-style: none;
 	margin:5px;
+   height: 100px;
 }
 
 /*

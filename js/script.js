@@ -85,24 +85,22 @@ $(document).ready(function() {
     // End page scroll functionality
 
     // Call getPhotoArray once for each category of photoset
-    getPhotoArray('commercial', '72157626084706053', 6);
-    getPhotoArray('wedding', '72157626085959775', 6);
-    getPhotoArray('commercial', '72157626085959775', 6);
-    getPhotoArray('wedding', '72157626085959775', 6);
+    getPhotoArray('commercial', '72157625718688007', 12);
+    getPhotoArray('wedding', '72157625718429177', 12);
 
     //attach click events
     $('a.all').click(function(){
-       $('#photoList li').fadeIn(500);
+       $('#photoList li').show();
        return false;
     });
     $('a.wedding').click(function(){
-       $('#photoList li').fadeIn(500);        
-       $('li.wedding').fadeOut(500);
+       $('#photoList li').show();        
+       $('li.commercial').hide();
        return false;
     });
     $('a.commercial').click(function(){
-       $('#photoList li').fadeIn(500);        
-       $('li.commercial').fadeOut(500);
+       $('#photoList li').show();        
+       $('li.wedding').hide();
        return false;
     });
    
@@ -113,16 +111,11 @@ $(document).ready(function() {
         // skip the automatic setup again, we do this later manually
         skipSetup: true
     });
-
     window.onload = function() {
-
         // set up all anchor elements with a "movie" class to work with Shadowbox
         Shadowbox.setup("a.thumb", {
             gallery:        "My Photos",
-            height:         535,
-            width:          802
         });
-
     };     
 });
 
