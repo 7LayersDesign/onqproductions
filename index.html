@@ -32,6 +32,8 @@
 
   <!-- CSS : implied media="all" -->
   <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" type="text/css" href="css/shadowbox.css">
+
 
   <!-- Uncomment if you are specifically targeting less enabled mobile browsers
   <link rel="stylesheet" media="handheld" href="css/handheld.css?v=2">  -->
@@ -81,11 +83,11 @@
 				shoots to wedding. Contact us for more info. Take some time  to checkout our photo samples below!</p>
 			<div class="sortOptions">
 				<span>Sort Options:</span>
-				<a class="sort1" href="#sortWed">Wedding</a>
-				<a class="sort2" href="#sortComm">Commercial</a>
-				<a class="sort3" href="#sortSport">Sports</a>
+				<a class="all" href="#">All</a>
+				<a class="wedding" href="#">Wedding</a>
+				<a class="commercial" href="#">Commercial</a>
 			</div>
-			<ul class="photoList">				
+			<ul id="photoList">				
 				<!-- List of image thumbs will go here -->
 			</ul>					
 		</div>
@@ -127,7 +129,7 @@
   <script src="js/script.js"></script>
   <script src="js/plugins/jquery.nav.min.js"></script>
   <script src="js/plugins/jquery.scrollTo.js"></script>
-  <script src="js/plugins/jquery.isotope.js"></script>
+  <script src="js/plugins/shadowbox.js"></script>
    
 	<!-- Use ddbelatedpng to fix png transparency in ie7 and below -->
 	<!--

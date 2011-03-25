@@ -140,7 +140,7 @@ clip:rect(1px,1px,1px,1px);}
 
 /* =========================== Global Rules =========================*/
 body{
-	background: url(../images/bgTextureLight.png) repeat;
+	background: url(../images/bgTan.jpg) repeat;
 	background-attachment: fixed;
 	color: #222;
 	font-family: "adobe-garamond-pro-1","adobe-garamond-pro-2";
@@ -168,7 +168,7 @@ p{margin:0 20px;}
 /* =========================== Layout Rules =========================*/
 
 #headerWrap{
-	border-bottom: 3px solid #fff;
+	border-bottom: 1px solid #fff;
 	background: url(../images/bgStriped.png) repeat-x;
 	height: 50px;
 	width: 100%;
@@ -176,6 +176,9 @@ p{margin:0 20px;}
 	top:0;
 	left:0;
 	z-index:1;
+	-webkit-box-shadow: 0px 0px 6px #666;
+	-moz-box-shadow: 0px 0px 6px #666;
+	box-shadow: 0px 0px 6px #666;
 }
 #headerWrap h1.logo{
 	background: url(../images/logoHorizontalLight.png) no-repeat;
@@ -184,13 +187,12 @@ p{margin:0 20px;}
 	position:absolute;
 	top: 8px;
 }
-
-
 .inner{
 	position: relative;
 	margin:0 auto;
 	width: 960px;
 }
+
 
 /* =========================== Navigation Rules =========================*/
 .nav{
@@ -218,20 +220,14 @@ p{margin:0 20px;}
 .nav li:hover a{color:#fff;}
 
 /* =========================== Major Section Rules =========================*/
-div.section{
-	height: 800px;
-	padding-top: 50px;
-}
-div.section p{
-	display:block;
-	padding-left: 5px;
-}
-#welcomeSection{}
-#photoSection{}
-#videoSection{}
-#servicesSection{}
-#contactSection{}
+div.section{height:800px;padding-top:50px;}
+div.section p{display:block;padding-left:5px;}
 
+#welcomeSection{background:url(../images/BGphotoSection.png) no-repeat top left;}
+#photoSection{background:url(../images/BGphotoSection.png) no-repeat top left;}
+#videoSection{background:url(../images/BGvideoSection.png) no-repeat top left;}
+#servicesSection{background:url(../images/BGphotoSection.png) no-repeat top left;}
+#contactSection{background:url(../images/BGphotoSection.png) no-repeat top left;}
 
 /* =========================== Photo Section Rules =========================*/
 
@@ -241,47 +237,33 @@ div.section p{
    border: 1px solid #999;
    padding: 5px;
 }
-
 .sortOptions span{font-size:16px;margin-bottom:5px;}
 .sortOptions a{color:#fff;font-size:1em;padding:2px;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;}
-.sortOptions a.sort1{background:#246980;}
-.sortOptions a.sort2{background:#94d9a7;color:#333;}
-.sortOptions a.sort3{background:#c6ebd0;color:#333;}
-.sortOptions a:hover{background:#fff;color:#333;}
+.sortOptions a.all{background:#aeaeae;}
+.sortOptions a.wedding{background:#535353;}
+.sortOptions a.commercial{background:#151515;}
 
-ul.photoList{
+.sortOptions a:hover{background:#fff;color:#333;}
+#photoList li img{border: 5px solid #999;}
+#photoList li.wedding img{border-color:#535353;}
+#photoList li.sports img{border-color:#151515;}
+#photoList li.commercial img{border-color:#151515;}
+#photoList li:hover img{border-color:#fff;}
+
+#photoList{
+   outline: 1px solid #999;
 	overflow: hidden;
 	margin-top: 10px;
+	margin: 10px 0;
 	width:100%;
 	padding:0;
 }
-.photoList img{
-	margin: 5px;
-}
 
-.photoList li {
-	border: 2px solid #fff;
+#photoList li {
 	float: left;
 	list-style: none;
-	margin:0;
-	height: 77px;
+	margin:5px;
 }
-.photoList li.thumb:hover{
-	background: #fff;
-}
-
-.photoList li.wedding{background: #246980;}
-.photoList li.sports{background: #94d9a7;}
-.photoList li.commercial{background: #c6ebd0;}
-
-.main img{
-	background: #444;
-	padding: 10px;
-	border: 2px solid #999;
-	margin: 20px auto;
-	display: block;
-}
-
 
 /*
  * Media queries for responsive design

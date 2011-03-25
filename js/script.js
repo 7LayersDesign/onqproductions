@@ -1,15 +1,8 @@
 /* Author: Andy Hutchins for Seven Layers Design
 */
-$(document).ready(function() {
-    //scroll to functionality for nav
-    $('.nav').onePageNav({
-        currentClass: 'current',
-        changeHash: true,
-        scrollSpeed: 500
-    });
-    // End page scroll functionality
 
-
+//Function Definitions
+var getPhotoArray = function(photoClass, photoSet, limit) {
     //Much of this code is modified from the jFlickrFeed plugin to pull photosets. Thanks!!
     // Build URL to query the Flickr API
     var settings = {
@@ -18,37 +11,34 @@ $(document).ready(function() {
             method: 'flickr.photosets.getPhotos',
             format: 'json',
             api_key: '5a79f4d6b80c431cf05fa7a502a67077',
-            photoset_id: '72157626084706053',
-            extras: 'url_m, url_b, url_z, url_t',
-            //We need the thumb, medium source	
-            // per_page: '',
+            photoset_id: photoSet,
+            per_page: limit,
             jsoncallback: '?'
         }
     };
     //build out API request URL
-    var url = settings.flickrbase + '?';
+    var requestURL = settings.flickrbase + '?';
     var first = true;
     for (var key in settings.qstrings) {
         if (!first)
-        url += '&';
-        url += key + '=' + settings.qstrings[key];
+            requestURL += '&';
+        requestURL += key + '=' + settings.qstrings[key];
         first = false;
-    }
-    /*
-		TODO Add exception handling to getJSON() call.
-	*/
+    }    
 
     // Initialize vars
     var imgURL_full;
     var imgURL_thumb;
-    var photoArr = [];
     var photoItem = [];
-    
+    var photoArr = [];    
     // Perform JSON request
-    $.getJSON(url, {},
+    /*
+        TODO Refactor into a function to use with multiple flickr photosets easily
+    */
+    $.getJSON(requestURL, {},
     function(data) {                
-        // if request succeded do stuff
-        if (data.stat == 'ok'){
+        // if request succeded do stuff        
+        if (data.stat == 'ok'){                        
             //JSON Object retrieved. Build URL and push to photoArr on each item
             $.each(data.photoset.photo,
             function(i, item) {
@@ -62,41 +52,79 @@ $(document).ready(function() {
                     item.server + '/' + item.id + '_' + item.secret + '_b.jpg';
 
                 // Add photo data to item array
-                photoItem = ['wedding', imgURL_thumb, imgURL_full];                
+                photoItem = [photoClass, imgURL_thumb, imgURL_full];                
                 //add photoItem to photoArr array
-                photoArr.push(photoItem);                    
-            });
-            
+                photoArr.push(photoItem);            
+            });                                    
             //print items to page
             if (photoArr.length > 0){
-                console.log('Print Time');
                 //append each photo to index as an li element
                 $.each(photoArr, function(i){                    
-                    console.log(photoArr[i][0] + ' :: ' + photoArr[i][1]);
-
-
-                    $('.photoList').append('<li class="' + photoArr[i][0] + '"><img src="' +
-                            photoArr[i][1] + '"></li>');
-                    
-                    
-                    
-                });
-                
+                    $('#photoList').append('<li class="' + photoArr[i][0] + '" data-type="' + photoArr[i][0] + '"><a href="' +
+                        photoArr[i][2] + '" rel="shadowbox" class="thumb"><img src="' +
+                            photoArr[i][1] + '"></a></li>');
+                });                
             };
         } else {
             console.log('An error has occured. See below for details.\n' +
                 'Error Code: ' + data.code + '\n' +
                 'Status: ' + data.stat + '\n' +
                 'Message: ' + data.message);
-        }
+        };
     });
-    //end JSON action        
-    
-    
+};
 
-    
-    
-}); 
+// Start of Document Code
+$(document).ready(function() {
+    //scroll to functionality for nav
+    $('.nav').onePageNav({
+        currentClass: 'current',
+        changeHash: true,
+        scrollSpeed: 500
+    });
+    // End page scroll functionality
+
+    // Call getPhotoArray once for each category of photoset
+    getPhotoArray('commercial', '72157626084706053', 6);
+    getPhotoArray('wedding', '72157626085959775', 6);
+    getPhotoArray('commercial', '72157626085959775', 6);
+    getPhotoArray('wedding', '72157626085959775', 6);
+
+    //attach click events
+    $('a.all').click(function(){
+       $('#photoList li').fadeIn(500);
+       return false;
+    });
+    $('a.wedding').click(function(){
+       $('#photoList li').fadeIn(500);        
+       $('li.wedding').fadeOut(500);
+       return false;
+    });
+    $('a.commercial').click(function(){
+       $('#photoList li').fadeIn(500);        
+       $('li.commercial').fadeOut(500);
+       return false;
+    });
+   
+   
+   
+    //initialize shadowbox
+    Shadowbox.init({
+        // skip the automatic setup again, we do this later manually
+        skipSetup: true
+    });
+
+    window.onload = function() {
+
+        // set up all anchor elements with a "movie" class to work with Shadowbox
+        Shadowbox.setup("a.thumb", {
+            gallery:        "My Photos",
+            height:         535,
+            width:          802
+        });
+
+    };     
+});
 
 
 
