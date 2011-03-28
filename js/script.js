@@ -1,7 +1,7 @@
 /* Author: Andy Hutchins for Seven Layers Design
 */
 
-//Function Definitions
+//Function Definitions for Flickr and Vimeo API interaction
 var getPhotoArray = function(photoClass, photoSet, limit) {
     //Much of this code is modified from the jFlickrFeed plugin to pull photosets. Thanks!!
     // Build URL to query the Flickr API
@@ -74,6 +74,38 @@ var getPhotoArray = function(photoClass, photoSet, limit) {
     });
 };
 
+var getVideoArray = function(videoClass, videoChannel) {
+    var requestURL = '';
+    var requestParams = {
+        vimeoBase: "http://vimeo.com/api/v2/channel/",
+        channel: videoChannel, 
+        request: "videos",
+        format: "json"
+    };    
+    var videoArray = [];
+    var videoItem = [];
+    //build the request URL
+    requestURL += requestParams.vimeoBase +                    
+                    requestParams.channel + '/' +
+                    requestParams.request + '.' +
+                    requestParams.format + '?callback=?';
+                    
+    //perform JSON request
+    $.getJSON(requestURL, {format: 'json'}, function(data){
+        //process each returned video object
+        $.each(data, function(i){
+            videoItem = [videoClass, data[i].url, data[i].thumbnail_medium];
+            videoArray.push(videoItem); //push item to video collection array            
+        });
+        //append each video to UL as a LI
+        $.each(videoArray, function(i){            
+            $('#videoList').append('<li class="' + videoArray[i][0] + '" data-type="' + videoArray[i][0] + '"><a href="' +
+                    videoArray[i][1] + '" rel="prettyPhoto" class="thumb"><img src="' +
+                        videoArray[i][2] + '"></a></li>');            
+        });
+    });    
+};
+
 // Start of Document Code
 $(document).ready(function() {
     //scroll to functionality for nav
@@ -85,10 +117,14 @@ $(document).ready(function() {
     // End page scroll functionality
 
     // Call getPhotoArray once for each category of photoset
-    getPhotoArray('commercial', '72157625718688007', 12);
-    getPhotoArray('wedding', '72157625718429177', 12);
+    getPhotoArray('commercial', '72157625718688007', 18);
+    getPhotoArray('wedding', '72157625718429177', 18);    
+    //Call getVideoArray once for each Vimeo channel
+    getVideoArray('comm', '183078');
+    getVideoArray('wedding', '183077')
 
-    //attach click events
+   
+    //attach click events for sort options
     $('a.all').click(function(){
        $('#photoList li').show();
        return false;
@@ -103,9 +139,8 @@ $(document).ready(function() {
        $('li.wedding').hide();
        return false;
     });
-   
-   
-   
+    
+    
     //initialize shadowbox
     Shadowbox.init({
         // skip the automatic setup again, we do this later manually

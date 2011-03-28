@@ -145,6 +145,7 @@ body{
 	color: #222;
 	font-family: "adobe-garamond-pro-1","adobe-garamond-pro-2";
 	font-size: 18px;
+	line-height: 27px;
 	padding: 0;
 	margin: 0;
 }
@@ -220,7 +221,7 @@ p{margin:0 20px;}
 .nav li:hover a{color:#fff;}
 
 /* =========================== Major Section Rules =========================*/
-div.section{height:800px;padding-top:50px;border-top: 2px solid #fff;}
+div.section{height:800px;padding-top:55px;border-top: 2px solid #333;}
 div.section p{display:block;padding-left:5px;}
 
 #welcomeSection img{display:block; margin: 0 auto;}
@@ -229,7 +230,8 @@ div.section p{display:block;padding-left:5px;}
 #servicesSection{background:url(../images/BGservicesSection.png) no-repeat top left;}
 #contactSection{background:url(../images/BGcontactSection.png) no-repeat top left;}
 
-/* =========================== Photo Section Rules =========================*/
+
+/* =========================== Photo and Video Section Rules =========================*/
 
 /* Sort Options */
 .sortOptions {
@@ -246,24 +248,46 @@ div.section p{display:block;padding-left:5px;}
 .sortOptions a.commercial{background:#151515;}
 
 .sortOptions a:hover{background:#fff;color:#333;}
+
 #photoList li img{border: 5px solid #999;}
 #photoList li.wedding img{border-color:#535353;}
 #photoList li.commercial img{border-color:#151515;}
 #photoList li:hover img{border-color:#fff;}
 
-#photoList{
+#videoList li img{border: 5px solid #999;}
+#videoList li.wedding img{border-color:#535353;}
+#videoList li.commercial img{border-color:#151515;}
+#videoList li:hover img{border-color:#fff;}
+
+#photoList, #videoList{
 	margin-top: 10px;
 	margin: 10px 0;
 	width:100%;
 	padding:0;
 }
 
-#photoList li {
+#photoList li, #videoList li {
 	float: left;
 	list-style: none;
 	margin:5px;
    height: 100px;
 }
+#videoList li {
+	float: left;
+	list-style: none;
+	margin: 15px;
+   height: 150px;
+}
+
+
+
+
+
+
+
+
+
+
 
 /*
  * Media queries for responsive design
