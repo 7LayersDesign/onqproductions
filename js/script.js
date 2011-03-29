@@ -60,9 +60,9 @@ var getPhotoArray = function(photoClass, photoSet, limit) {
             if (photoArr.length > 0){
                 //append each photo to index as an li element
                 $.each(photoArr, function(i){                    
-                    $('#photoList').append('<li class="' + photoArr[i][0] + '" data-type="' + photoArr[i][0] + '"><a href="' +
+                    $('#photoList').append('<div class="item ' + photoArr[i][0] + '" data-type="' + photoArr[i][0] + '"><a href="' +
                         photoArr[i][2] + '" rel="shadowbox" class="thumb"><img src="' +
-                            photoArr[i][1] + '"></a></li>');
+                            photoArr[i][1] + '"></a></div>');
                 });                
             };
         } else {
@@ -106,6 +106,17 @@ var getVideoArray = function(videoClass, videoChannel) {
     });    
 };
 
+var setIsotope = function(){
+    console.log('Set Isotope called!');
+    $('#photoList').isotope({
+      // options
+      itemSelector : '.item',
+      layoutMode : 'fitRows',
+      animationEngine : 'jquery'
+    });
+}
+
+
 // Start of Document Code
 $(document).ready(function() {
     //scroll to functionality for nav
@@ -117,29 +128,29 @@ $(document).ready(function() {
     // End page scroll functionality
 
     // Call getPhotoArray once for each category of photoset
-    getPhotoArray('commercial', '72157625718688007', 18);
-    getPhotoArray('wedding', '72157625718429177', 18);    
+    getPhotoArray('commercial', '72157625718688007', 10);
+    getPhotoArray('wedding', '72157625718429177', 14);    
     //Call getVideoArray once for each Vimeo channel
     getVideoArray('comm', '183078');
-    getVideoArray('wedding', '183077')
+    getVideoArray('wedding', '183077');
+
+    setTimeout('setIsotope()', 750);        
 
    
     //attach click events for sort options
     $('a.all').click(function(){
-       $('#photoList li').show();
+        $('#photoList').isotope({ filter: '*' });        
        return false;
     });
     $('a.wedding').click(function(){
-       $('#photoList li').show();        
-       $('li.commercial').hide();
+        $('#photoList').isotope({ filter: '.wedding' });
        return false;
     });
     $('a.commercial').click(function(){
-       $('#photoList li').show();        
-       $('li.wedding').hide();
+        $('#photoList').isotope({ filter: '.commercial' });        
        return false;
     });
-    
+
     
     //initialize shadowbox
     Shadowbox.init({

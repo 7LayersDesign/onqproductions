@@ -259,17 +259,15 @@ div.section p{display:block;padding-left:5px;}
 #videoList li.commercial img{border-color:#151515;}
 #videoList li:hover img{border-color:#fff;}
 
-#photoList, #videoList{
+#photoList{
+   position:relative;
 	margin-top: 10px;
-	margin: 10px 0;
 	width:100%;
 	padding:0;
 }
-
-#photoList li, #videoList li {
-	float: left;
+#photoList div {
 	list-style: none;
-	margin:5px;
+	margin:3px;
    height: 100px;
 }
 #videoList li {
@@ -278,14 +276,6 @@ div.section p{display:block;padding-left:5px;}
 	margin: 15px;
    height: 150px;
 }
-
-
-
-
-
-
-
-
 
 
 
