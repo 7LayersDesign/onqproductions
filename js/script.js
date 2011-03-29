@@ -99,8 +99,8 @@ var getVideoArray = function(videoClass, videoChannel) {
         });
         //append each video to UL as a LI
         $.each(videoArray, function(i){            
-            $('#videoList').append('<li class="' + videoArray[i][0] + '" data-type="' + videoArray[i][0] + '"><a href="' +
-                    videoArray[i][1] + '" rel="prettyPhoto" class="thumb"><img src="' +
+            $('#videoList').append('<li class="' + videoArray[i][0] + '"><a href="' +
+                    videoArray[i][1] + '" rel="prettyPhoto"><img src="' +
                         videoArray[i][2] + '"></a></li>');            
         });
     });    
