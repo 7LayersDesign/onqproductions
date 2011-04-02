@@ -94,6 +94,58 @@
 			</div>
 			<div id="photoList">				
 				<!-- List of image thumbs will go here -->
+				<?php
+				function addPhotoset($photoset_id, $class, $limit) {
+					$photoSet = array();
+					
+					//build the API URL to call
+					$params = array(
+						'api_key'		=> '5a79f4d6b80c431cf05fa7a502a67077',
+						'method'		=> 'flickr.photosets.getPhotos',
+						'photoset_id'	=> $photoset_id,
+						'per_page'		=> $limit,
+						'format'		=> 'php_serial',
+					);
+					$encoded_params = array();
+					foreach ($params as $k => $v){
+						$encoded_params[] = urlencode($k).'='.urlencode($v);
+					}
+					//call the API and decode the response
+					$requestUrl = "http://api.flickr.com/services/rest/?".implode('&', $encoded_params);										
+					$rsp = file_get_contents($requestUrl);					
+					$rspData = unserialize($rsp);					
+					if ($rspData['stat'] == 'ok'){
+						//loop through photoSet and store class, thumbURL, and fullURL for each photo
+						foreach ($rspData['photoset']['photo'] as $p){
+							$imgUrlBase = 'http://farm' . $p['farm'] . '.static.flickr.com/' . $p['server'] . '/' . $p['id'] . '_' . $p['secret'];
+							$thumbUrl = $imgUrlBase . '_t.jpg';
+							$fullUrl = $imgUrlBase . '_b.jpg';
+							$i = array($thumbUrl, $fullUrl, $class);
+							array_push($photoSet, $i);//push current photo array into mainPhotos						
+						};
+					}else{
+						echo "Call failed!";
+					}					
+					//return the photoSt
+					return $photoSet;					
+				}//end of addPhotoset function
+				
+				//call addPhotoSet once per photoset to build up $mainPhotos
+				//add new line for each photoset you want
+				$mainPhotos = addPhotoSet('72157602073353550', 'wedding', 12);
+				$mainPhotos = array_merge($mainPhotos, addPhotoSet('72157600508011916', 'commercial', 12));
+				$mainPhotos = array_merge($mainPhotos, addPhotoSet('72157622541375812', 'architecture', 12));
+												
+				//shuffle array
+				shuffle($mainPhotos);
+								
+				//printPhotos to page				
+				foreach ($mainPhotos as $p){					
+					echo "<div class=\"item $p[2]\">";
+					echo "<a href=\"$p[1]\" rel=\"shadowbox\" class=\"thumb\"><img src=\"$p[0]\"></a>"; 
+					echo "</div>";					
+				};						
+				?>
 			</div>					
 		</div>
     </div>

@@ -2,54 +2,7 @@
 */
 
 
-// GLOBAL ARRAYS
 
-
-
-//Function Definitions for Flickr and Vimeo API interaction
-var getFlickrSetArray = function(setID, limit) { 
-    var photoArr = new Array();
-    var photoItem = new Array();
-    var flickrPhotoArr = new Array();                   
-    //Much of this code is modified from the jFlickrFeed plugin to pull photosets. Thanks!!
-    settings = {
-        flickrbase: 'http://api.flickr.com/services/rest/',
-        qstrings: {
-            method: 'flickr.photosets.getPhotos',
-            format: 'json',
-            api_key: '5a79f4d6b80c431cf05fa7a502a67077',
-            photoset_id: setID,
-            per_page: limit,
-            jsoncallback: '?'
-        }
-    };                        
-    //build out API request URL
-    var requestURL = settings.flickrbase + '?';
-    var first = true;
-    for (var key in settings.qstrings) {
-        if (!first)
-            requestURL += '&';
-        requestURL += key + '=' + settings.qstrings[key];
-        first = false;
-    };        
-    
-    
-    //make JSON call using each set
-    $.getJSON(requestURL, {},
-        function(data) {  //callback function do asynch stuff in here
-        // if request succeded do stuff        
-        if (data.stat == 'ok'){ 
-            $.each(item = data.photoset.photo , function(i){
-                
-            });
-        } else {
-            console.log('An error has occured. See below for details.\n' +
-                'Error Code: ' + data.code + '\n' +
-                'Status: ' + data.stat + '\n' +
-                'Message: ' + data.message);
-        };//end of data check
-    });//end of getJSON callback function
-};//end of getFlickrSetAraay()
 
 var getVimeoChannelArray = function(videoClass, videoChannel) {
     var requestURL = '';
@@ -83,22 +36,8 @@ var getVimeoChannelArray = function(videoClass, videoChannel) {
     });    
 };
 
-var setIsotope = function(){
-    console.log('Set Isotope called!');
-    $('#photoList').isotope({
-      // options
-      itemSelector : '.item',
-      layoutMode : 'fitRows',
-      animationEngine : 'jquery'
-    });
-}
-
-
 // Start of Document Code
 $(document).ready(function() {
-    var photoArr = new Array();
-    var photoItem = new Array();
-    var flickrPhotoArr = new Array();     
     
     //scroll to functionality for nav
     $('.nav').onePageNav({
@@ -107,23 +46,10 @@ $(document).ready(function() {
         scrollSpeed: 500
     });
     // End page scroll functionality
-
-    //create an 2d array with each photoset
-    getFlickrSetArray('72157626084706053', 5);
-    
-    //getFlickrSetArray(['wedding', '72157625718429177', 6]);
-    //getFlickrSetArray(['architecture', '72157625513254874', 7]);        
-    //setTimeout(setIsotope, 1000);
-
     //Call getVideoArray once for each Vimeo channel
     //getVimeoChannelArray('comm', '183078');
     //getVimeoChannelArray('wedding', '183077');
-    
-    /*
-        TODO Find a better way to do this!
-    */
-    //setTimeout('setIsotope()', 2000);        
-   
+        
     //attach click events for sort options
     $('a.all').click(function(){
         $('#photoList').isotope({ filter: '*' });        
@@ -154,3 +80,15 @@ $(document).ready(function() {
         });
     };     
 });
+$(window).load(
+    function() {
+        //init Isotope after all images load
+        $('#photoList').isotope({
+          // options
+          itemSelector : '.item',
+          layoutMode : 'fitRows',
+          animationEngine : 'jquery'
+        });        
+        
+    }
+);
