@@ -140,7 +140,7 @@ clip:rect(1px,1px,1px,1px);}
 
 /* =========================== Global Rules =========================*/
 body{
-	background: url(../images/bgTan.jpg) repeat;
+	background: url(../images/bgRough.jpg) repeat;
 	background-attachment: fixed;
 	color: #222;
 	font-family: "adobe-garamond-pro-1","adobe-garamond-pro-2";
@@ -246,23 +246,20 @@ div.section p{display:block;padding-left:5px;}
 .sortOptions a.all{background:#aeaeae;}
 .sortOptions a.wedding{background:#535353;}
 .sortOptions a.commercial{background:#151515;}
-
+.sortOptions a.architecture{background:#888;}
 .sortOptions a:hover{background:#fff;color:#333;}
 
-#photoList li img{border: 5px solid #999;}
-#photoList li.wedding img{border-color:#535353;}
-#photoList li.commercial img{border-color:#151515;}
-#photoList li:hover img{border-color:#fff;}
-
-#videoList li img{border: 5px solid #999;}
-#videoList li.wedding img{border-color:#535353;}
-#videoList li.commercial img{border-color:#151515;}
-#videoList li:hover img{border-color:#fff;}
+#photoList div img{border: 5px solid #999;}
+#photoList div.wedding img{border-color:#535353;}
+#photoList div.commercial img{border-color:#151515;}
+#photoList div.architecture img{border-color:#888;}
+#photoList div:hover img{border-color:#fff;}
 
 #photoList{
    position:relative;
 	margin-top: 10px;
 	width:100%;
+	height: 700px;
 	padding:0;
 }
 #photoList div {
@@ -276,7 +273,6 @@ div.section p{display:block;padding-left:5px;}
 	margin: 15px;
    height: 150px;
 }
-
 
 
 /*
