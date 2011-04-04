@@ -47,8 +47,8 @@ $(document).ready(function() {
     });
     // End page scroll functionality
     //Call getVideoArray once for each Vimeo channel
-    //getVimeoChannelArray('comm', '183078');
-    //getVimeoChannelArray('wedding', '183077');
+    getVimeoChannelArray('comm', '183078');
+    getVimeoChannelArray('wedding', '183077');
         
     //attach click events for sort options
     $('a.all').click(function(){
@@ -67,7 +67,11 @@ $(document).ready(function() {
         $('#photoList').isotope({ filter: '.architecture' });        
        return false;
     });
-    
+    $('a.special').click(function(){
+        $('#photoList').isotope({ filter: '.special' });        
+       return false;
+    });
+
     //initialize shadowbox
     Shadowbox.init({
         // skip the automatic setup again, we do this later manually

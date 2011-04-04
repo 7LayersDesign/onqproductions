@@ -90,7 +90,8 @@
 				<a class="all" href="#">All</a>
 				<a class="wedding" href="#">Wedding</a>
 				<a class="commercial" href="#">Commercial</a>
-				<a class="architecture" href="#">Architecture</a>				
+				<a class="architecture" href="#">Architecture</a>
+				<a class="special" href="#">Special</a>								
 			</div>
 			<div id="photoList">				
 				<!-- List of image thumbs will go here -->
@@ -118,7 +119,7 @@
 						//loop through photoSet and store class, thumbURL, and fullURL for each photo
 						foreach ($rspData['photoset']['photo'] as $p){
 							$imgUrlBase = 'http://farm' . $p['farm'] . '.static.flickr.com/' . $p['server'] . '/' . $p['id'] . '_' . $p['secret'];
-							$thumbUrl = $imgUrlBase . '_t.jpg';
+							$thumbUrl = $imgUrlBase . '_m.jpg';
 							$fullUrl = $imgUrlBase . '_b.jpg';
 							$i = array($thumbUrl, $fullUrl, $class);
 							array_push($photoSet, $i);//push current photo array into mainPhotos						
@@ -132,17 +133,17 @@
 				
 				//call addPhotoSet once per photoset to build up $mainPhotos
 				//add new line for each photoset you want
-				$mainPhotos = addPhotoSet('72157602073353550', 'wedding', 12);
-				$mainPhotos = array_merge($mainPhotos, addPhotoSet('72157600508011916', 'commercial', 12));
-				$mainPhotos = array_merge($mainPhotos, addPhotoSet('72157622541375812', 'architecture', 12));
-												
+				$mainPhotos = addPhotoSet('72157626084706053', 'wedding', 5);
+				$mainPhotos = array_merge($mainPhotos, addPhotoSet('72157626084706053', 'commercial', 5));
+				$mainPhotos = array_merge($mainPhotos, addPhotoSet('72157626084706053', 'architecture', 5));
+				$mainPhotos = array_merge($mainPhotos, addPhotoSet('72157626084706053', 'special', 5));								
 				//shuffle array
 				shuffle($mainPhotos);
 								
 				//printPhotos to page				
 				foreach ($mainPhotos as $p){					
 					echo "<div class=\"item $p[2]\">";
-					echo "<a href=\"$p[1]\" rel=\"shadowbox\" class=\"thumb\"><img src=\"$p[0]\"></a>"; 
+					echo "<a href=\"$p[1]\" rel=\"shadowbox\" class=\"thumb\"><img src=\"$p[0]\" width=\"170\"></a>"; 
 					echo "</div>";					
 				};						
 				?>
@@ -161,7 +162,8 @@
 				<a class="all" href="#">All</a>
 				<a class="wedding" href="#">Wedding</a>
 				<a class="commercial" href="#">Commercial</a>
-			</div>					
+				<a class="architecture" href="#">Architecture</a>				
+			</div>				
 			<ul id="videoList">
 				<!-- List of video thumbnails will go here -->
 			</ul>
