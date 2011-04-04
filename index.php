@@ -45,8 +45,6 @@
 	<script type="text/javascript" src="http://use.typekit.com/ftw1yvk.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-	<!-- prettyPhoto -->
-	<!-- <script src="js/plugins/jquery.prettyPhoto.js"></script>  -->
 	
 </head>
 
@@ -94,7 +92,7 @@
 				<a class="special" href="#">Special</a>								
 			</div>
 			<div id="photoList">				
-				<!-- List of image thumbs will go here -->
+				<!-- List of image thumbs will insert here using PHP-->
 				<?php
 				function addPhotoset($photoset_id, $class, $limit) {
 					$photoSet = array();
@@ -142,9 +140,9 @@
 								
 				//printPhotos to page				
 				foreach ($mainPhotos as $p){					
-					echo "<div class=\"item $p[2]\">";
-					echo "<a href=\"$p[1]\" rel=\"shadowbox\" class=\"thumb\"><img src=\"$p[0]\" width=\"170\"></a>"; 
-					echo "</div>";					
+					echo "<div class=\"item $p[2]\">\n";
+					echo "<a href=\"$p[1]\" rel=\"prettyPhoto\" class=\"thumb\"><img src=\"$p[0]\" width=\"170\"></a>\n"; 
+					echo "</div>\n";					
 				};						
 				?>
 			</div>					
@@ -157,16 +155,58 @@
 			<p>We can provide a wide range of video services ranging from commercial 
 				shoots to weddings. Contact us for more info. We can provide a wide range of video services ranging from commercial 
 					shoots to wedding. Contact us for more info. Take some time  to checkout our video samples below!</p>
-			<div class="sortOptions">
+			<!-- <div class="sortOptions">
 				<span>Sort Options:</span>
 				<a class="all" href="#">All</a>
 				<a class="wedding" href="#">Wedding</a>
 				<a class="commercial" href="#">Commercial</a>
 				<a class="architecture" href="#">Architecture</a>				
-			</div>				
-			<ul id="videoList">
+			</div> -->				
+			<div id="videoList">
 				<!-- List of video thumbnails will go here -->
-			</ul>
+				<?php								
+					function addVideoChannel($videoChannelId, $displayClass) {						
+						//call the API and decode the response
+						$requestUrl = "http://vimeo.com/api/v2/channel/$videoChannelId/videos.php";
+						//get video channel array
+						$rsp = file_get_contents($requestUrl);					
+						$rspData = unserialize($rsp);												
+						if (count($rspData) > 0) {
+						    $retData = array();
+							//loop through videos and store class, thumbURL, and video url for each video
+							foreach($rspData as $v){
+							    //build an array item with each value needed for display and add to retData;
+                                $videoItem = array(
+                                    'title'         => $v['title'],
+                                    'desc'          => $v['description'],
+                                    'url'           => $v['url'],
+                                    'thumb_med'     => $v['thumbnail_medium'],
+                                    'height'        => $v['height'],
+                                    'width'         => $v['width'],
+                                    'duration'      => $v['duration'],
+                                    'displayClass'  => $displayClass
+                                );
+                                array_push($retData, $videoItem);
+							}
+							return $retData;
+						} else {
+							echo 'Call Failed.';
+						}											
+					}//end of addVideo Function	
+					$videoSet = array();									
+					//call function for each video channel
+					$videoSet = addVideoChannel('183078', 'wedding');
+					$videoSet = array_merge($videoSet, addVideoChannel('183077', 'commercial'));					
+					//shuffle video array
+                    shuffle($videoSet);					
+                    //loop through array and print each video
+    				foreach ($videoSet as $v){					
+    					echo '<div class="item ' . $v['displayClass'] . '">';    					
+    					echo '<a href="' . $v['url'] . '" rel="prettyPhoto"><img src="' . $v['thumb_med'] . '"></a>';
+    					echo '</div>';					
+    				};                    
+				?>
+			</div>
 		</div>
 	</div>
 	<!-- Service Section -->
@@ -200,8 +240,15 @@
 <script src="js/script.js"></script>
 <script src="js/plugins/jquery.nav.min.js"></script>
 <script src="js/plugins/jquery.scrollTo.js"></script>
-<script src="js/plugins/shadowbox.js"></script>
 <script src="js/plugins/jquery.isotope.min.js"></script>
+<!-- prettyPhoto -->
+<script src="js/plugins/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+		$("a[rel^='prettyPhoto']").prettyPhoto();
+	});
+</script>
+
 
 
 <!-- Use ddbelatedpng to fix png transparency in ie7 and below -->
